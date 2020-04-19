@@ -1,7 +1,8 @@
 $(function(){
 
-    chrome.storage.sync.get('total', function(budget){
+    chrome.storage.sync.get(['total', 'limit'], function(budget){
         $('#total').text(budget.total)
+        $('#limit').text(budget.limit)
     }) // this gets the previous value that we stored so we don't start from zero each time
 
     $('#spendAmount').click(function(){ // the code below executes once we click on the submit button
