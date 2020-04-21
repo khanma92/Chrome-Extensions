@@ -27,7 +27,7 @@ chrome.contextMenus.onClicked.addListener(function(clickData) { // listening to 
                             type: 'basic',
                             iconUrl: 'icon48.png',
                             title: 'Limit reached!', 
-                            message: "Uh oh! Looks like ou've reached your limit!"
+                            message: "Uh oh! Looks like you've reached your limit!"
                         };
                         chrome.notifications.create('limitNotif', notifOptions); 
                     }
@@ -36,4 +36,8 @@ chrome.contextMenus.onClicked.addListener(function(clickData) { // listening to 
             })
         }
     } 
-})
+});
+
+chrome.storage.onChanged.addListener(function (changes, storageName) {  // add a badge to know the total without clicking the extension
+    chrome.browserAction.setBadgeText({"text": changes.total.newValue.toString()})
+});
