@@ -22,8 +22,9 @@
 
     "content_scripts": [
         {
+            "js": ["jquery-3.5.0.min.js", "content.js"],
             "matches": ["https://developer.chrome.com/*"], 
-            "js": ["jquery-3.5.0.min.js", "content.js"]
+            "css": ["content.css"]
         }
     ],
 
